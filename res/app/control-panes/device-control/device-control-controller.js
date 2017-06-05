@@ -132,5 +132,18 @@ module.exports = function DeviceControlCtrl($scope, DeviceService, GroupService,
       $window.resizeTo($window.outerHeight, $window.outerWidth)
     }
   }
-
+//wen add
+  $scope.pressKeyCode = function(device, keycode) {
+	  //console.log(device)
+    $scope.control.keyPress(keycode)
+  }
+  $scope.press = function(key) {
+    $scope.control.keyPress(key)
+  }
+  $scope.isTV = function(device) {
+	  console.log(device.manufacturer)
+	  console.log(device.manufacturer=="LETV")
+    return device.manufacturer=="LETV"
+  }
+//wen end
 }

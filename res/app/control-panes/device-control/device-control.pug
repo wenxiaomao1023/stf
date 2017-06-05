@@ -48,10 +48,76 @@
 
       .stf-vnc-bottom.as-row(ng-hide='$root.standalone')
         .controls.as-cell
-          .btn-group.btn-group-justified
+          .btn-group.btn-group-justified(ng-hide='isTV(device)')
             a(device-control-key='menu', title='{{"Menu"|translate}}').btn.btn-primary.btn-lg.no-transition
               i.fa.fa-bars
             a(device-control-key='home', title='{{"Home"|translate}}').btn.btn-primary.btn-lg.no-transition
               i.fa.fa-home
             a(device-control-key='back', title='{{"Back"|translate}}').btn.btn-primary.btn-lg.no-transition
               i.fa.fa-mail-reply
+          .btn-group.btn-group-justified(ng-hide='!isTV(device)')
+            a(uib-tooltip='{{"Rewind"|translate}}', ng-click='press("media_rewind")').btn.btn-primary.btn-lg.no-transition
+              i.fa.fa-fast-backward
+            a(uib-tooltip='{{"Previous"|translate}}', ng-click='press("media_previous")').btn.btn-primary.btn-lg.no-transition
+              i.fa.fa-step-backward
+            a(uib-tooltip='{{"Play/Pause"|translate}}', ng-click='press("media_play_pause")').btn.btn-primary.btn-lg.no-transition
+              i.fa.fa-youtube-play
+            a(uib-tooltip='{{"Stop"|translate}}', ng-click='press("media_stop")').btn.btn-primary.btn-lg.no-transition
+              i.fa.fa-stop
+            a(uib-tooltip='{{"Next"|translate}}', ng-click='press("media_next")').btn.btn-primary.btn-lg.no-transition
+              i.fa.fa-step-forward
+            a(uib-tooltip='{{"Fast Forward"|translate}}', ng-click='press("media_fast_forward")').btn.btn-primary.btn-lg.no-transition
+              i.fa.fa-fast-forward  
+          .btn-group.btn-group-justified(ng-hide='!isTV(device)')
+            a(uib-tooltip='1', ng-click='press("1")').btn.btn-primary.btn-lg.no-transition
+              span 1
+            a(uib-tooltip='2', ng-click='press("2")').btn.btn-primary.btn-lg.no-transition
+              span 2
+            a(uib-tooltip='3', ng-click='press("3")').btn.btn-primary.btn-lg.no-transition
+              span 3
+            a(uib-tooltip='{{"Channel Up"|translate}}', ng-click='press("CHANNEL_UP")').btn.btn-primary.btn-lg.no-transition
+              i.fa.fa-chevron-up
+            a(uib-tooltip='{{"Mute"|translate}}', ng-click='press("MUTE")').btn.btn-primary.btn-lg.no-transition
+              i.fa.fa-volume-off
+              i.fa.fa-close
+            a(uib-tooltip='{{"Volume Up"|translate}}', ng-click='press("VOLUME_UP")').btn.btn-primary.btn-lg.no-transition
+              i.fa.fa-plus
+          .btn-group.btn-group-justified(ng-hide='!isTV(device)')
+            a(uib-tooltip='4', ng-click='press("4")').btn.btn-primary.btn-lg.no-transition
+              span 4
+            a(uib-tooltip='5', ng-click='press("5")').btn.btn-primary.btn-lg.no-transition
+              span 5
+            a(uib-tooltip='6', ng-click='press("6")').btn.btn-primary.btn-lg.no-transition
+              span 6
+            a(uib-tooltip='{{"Channel Down"|translate}}', ng-click='press("CHANNEL_DOWN")').btn.btn-primary.btn-lg.no-transition
+              i.fa.fa-chevron-down  
+            a(uib-tooltip='{{"Up"|translate}}', ng-click='press("DPAD_UP")').btn.btn-primary.btn-lg.no-transition
+              i.fa.fa-caret-up
+            a(uib-tooltip='{{"Volume Down"|translate}}', ng-click='press("VOLUME_DOWN")').btn.btn-primary.btn-lg.no-transition
+              i.fa.fa-minus
+          .btn-group.btn-group-justified(ng-hide='!isTV(device)')
+            a(uib-tooltip='7', ng-click='press("7")').btn.btn-primary.btn-lg.no-transition
+              span 7
+            a(uib-tooltip='8', ng-click='press("8")').btn.btn-primary.btn-lg.no-transition
+              span 8
+            a(uib-tooltip='9', ng-click='press("9")').btn.btn-primary.btn-lg.no-transition
+              span 9
+            a(uib-tooltip='{{"Left"|translate}}', ng-click='press("DPAD_LEFT")').btn.btn-primary.btn-lg.no-transition
+              i.fa.fa-caret-left
+            a(uib-tooltip='{{"Enter"|translate}}', ng-click='press("DPAD_CENTER")').btn.btn-primary.btn-lg.no-transition
+              i.fa.fa-circle-o
+            a(uib-tooltip='{{"Right"|translate}}', ng-click='press("DPAD_RIGHT")').btn.btn-primary.btn-lg.no-transition
+              i.fa.fa-caret-right
+          .btn-group.btn-group-justified(ng-hide='!isTV(device)')
+            a(uib-tooltip='{{"Home"|translate}}', ng-click='press("HOME")').btn.btn-primary.btn-lg.no-transition
+              span {{"Home"|translate}}
+            a(uib-tooltip='0', ng-click='press("0")').btn.btn-primary.btn-lg.no-transition
+              span 0
+            a(uib-tooltip='{{"Settings"|translate}}', ng-click='press("SETTINGS")').btn.btn-primary.btn-lg.no-transition
+              span {{"Settings"|translate}}
+            a(uib-tooltip='{{"Menu"|translate}}', ng-click='press("MENU")').btn.btn-primary.btn-lg.no-transition
+              span {{"Menu"|translate}}
+            a(uib-tooltip='{{"Down"|translate}}', ng-click='press("DPAD_DOWN")').btn.btn-primary.btn-lg.no-transition
+              i.fa.fa-caret-down
+            a(uib-tooltip='{{"Back"|translate}}', ng-click='press("BACK")').btn.btn-primary.btn-lg.no-transition
+              span {{"Back"|translate}}
