@@ -70,8 +70,10 @@ module.exports = function LogcatServiceFactory(socket, FilterStringService) {
   var logLevelsCapitalized = _.map(logLevelsLowerCase, function(level) {
     return _s.capitalize(level)
   })
-
-  for (var i = 2; i < 8; ++i) {
+//wen add
+  for (var i = 5; i < 8; ++i) {
+//wen end
+  //for (var i = 2; i < 8; ++i) {
     service.filters.levelNumbers.push({number: i, name: logLevelsCapitalized[i]})
   }
 

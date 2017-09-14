@@ -8,6 +8,9 @@ module.exports = function DeviceListCtrl(
 , ControlService
 , SettingsService
 , $location
+  //wen add
+, UserService
+  //wen end
 ) {
   $scope.tracker = DeviceService.trackAll($scope)
   $scope.control = ControlService.create($scope.tracker.devices, '*ALL')
@@ -27,38 +30,48 @@ module.exports = function DeviceListCtrl(
       name: 'name'
     , selected: true
     }
+//wen del
+/*
   , {
       name: 'serial'
-    , selected: false
+    , selected: true
     }
+*/
+//wen end
   , {
       name: 'operator'
     , selected: true
     }
   , {
       name: 'releasedAt'
-    , selected: true
+    , selected: false
     }
   , {
       name: 'version'
     , selected: true
     }
+//wen del
+/*
   , {
       name: 'network'
-    , selected: false
+    , selected: true
     }
+*/
+//wen end
   , {
       name: 'display'
-    , selected: false
+    , selected: true
     }
   , {
       name: 'manufacturer'
-    , selected: false
+    , selected: true
     }
   , {
       name: 'sdk'
-    , selected: false
+    , selected: true
     }
+//wen del
+/*
   , {
       name: 'abi'
     , selected: false
@@ -107,6 +120,8 @@ module.exports = function DeviceListCtrl(
       name: 'provider'
     , selected: true
     }
+*/
+//wen del
   , {
       name: 'notes'
     , selected: true
@@ -146,7 +161,13 @@ module.exports = function DeviceListCtrl(
   , source: 'deviceListSort'
   })
 
-  $scope.filter = []
+  //wen add
+  $scope.filter = QueryParser.parse(UserService.currentUser.name)
+  //wen end
+
+  //wen del
+  //$scope.filter = []
+  //wen end
 
   $scope.activeTabs = {
     icons: true
@@ -177,7 +198,13 @@ module.exports = function DeviceListCtrl(
   }
 
   $scope.search = {
-    deviceFilter: '',
+    //wen add
+    deviceFilter: UserService.currentUser.name,
+    //wen end
+
+    //wen del
+    //deviceFilter: '',
+    //wen end
     focusElement: false
   }
 
@@ -188,9 +215,17 @@ module.exports = function DeviceListCtrl(
   }
 
   $scope.reset = function() {
-    $scope.search.deviceFilter = ''
-    $scope.filter = []
+    //wen add
+    $scope.search.deviceFilter = UserService.currentUser.name
+    $scope.filter = QueryParser.parse(UserService.currentUser.name)
+    //wen end
+
+    //wen del
+    //$scope.search.deviceFilter = ''
+    //$scope.filter = []
+    //wen end
     $scope.sort = defaultSort
     $scope.columns = defaultColumns
   }
+
 }

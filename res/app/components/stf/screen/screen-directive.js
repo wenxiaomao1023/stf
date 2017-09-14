@@ -59,6 +59,8 @@ module.exports = function DeviceScreenDirective(
         }
 
         var ws = new WebSocket(device.display.url)
+console.log('wen log')
+console.log(device.display.url)
         ws.binaryType = 'blob'
 
         ws.onerror = function errorListener() {

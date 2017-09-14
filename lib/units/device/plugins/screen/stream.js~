@@ -517,6 +517,7 @@ log.info('wss remove listening')
                 break
               case WebSocket.OPEN:
                 // This is what SHOULD happen.
+log.info('WEBSOCKET_OPEN')
                 ws.send(message, options, function(err) {
                   return err ? reject(err) : resolve()
                 })

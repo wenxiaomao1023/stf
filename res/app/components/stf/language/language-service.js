@@ -27,7 +27,10 @@ module.exports =
 
     LanguageService.settingKey = 'selectedLanguage'
     LanguageService.supportedLanguages = supportedLanguages
-    LanguageService.defaultLanguage = 'en'
+//wen add
+    LanguageService.defaultLanguage = 'zh_CN'
+//wen end
+    //LanguageService.defaultLanguage = 'en'
     LanguageService.detectedLanguage =
       onlySupported(detectLanguage(), LanguageService.defaultLanguage)
 

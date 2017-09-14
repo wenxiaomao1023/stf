@@ -514,7 +514,7 @@ msgstr "隐藏屏幕"
 #: app/components/stf/device-context-menu/device-context-menu.html:1
 #: app/control-panes/device-control/device-control.html:1
 msgid "Home"
-msgstr "主屏界面"
+msgstr "首页"
 
 #: app/control-panes/advanced/port-forwarding/port-forwarding.html:1
 msgid "Host"
@@ -712,7 +712,7 @@ msgstr "网络"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Next"
-msgstr "下一步"
+msgstr "下一集"
 
 #: app/components/stf/device/device-info-filter/index.js:115
 msgid "No"
@@ -922,7 +922,7 @@ msgstr "按菜单键"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Previous"
-msgstr "先前的"
+msgstr "上一集"
 
 #: app/control-panes/dashboard/install/install.html:7
 msgid "Processing..."
@@ -1000,7 +1000,7 @@ msgstr "重试"
 
 #: app/control-panes/advanced/input/input.html:1
 msgid "Rewind"
-msgstr "回滚"
+msgstr "快退"
 
 #: app/control-panes/info/info.html:1
 msgid "Roaming"

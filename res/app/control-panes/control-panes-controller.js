@@ -11,6 +11,28 @@ module.exports =
         filters: ['native', 'web']
       },
       {
+        title: gettext('File Explorer'),
+        icon: 'fa-folder-open color-blue',
+        templateUrl: 'control-panes/explorer/explorer.pug',
+        filters: ['native', 'web']
+      }
+/*
+      {
+        title: gettext('Logs'),
+        icon: 'fa-info color-orange',
+        templateUrl: 'control-panes/logs/logs.pug',
+        filters: ['native', 'web']
+      }
+*/
+//wen del
+/*
+      {
+        title: gettext('Screenshots'),
+        icon: 'fa-camera color-skyblue',
+        templateUrl: 'control-panes/screenshots/screenshots.pug',
+        filters: ['native', 'web']
+      },
+      {
         title: gettext('Automation'),
         icon: 'fa-road color-lila',
         templateUrl: 'control-panes/automation/automation.pug',
@@ -34,6 +56,8 @@ module.exports =
         templateUrl: 'control-panes/info/info.pug',
         filters: ['native', 'web']
       }
+*/
+//wen end
     ]
 
     $scope.topTabs = [
@@ -81,11 +105,30 @@ module.exports =
         })
     }
 
-    getDevice($routeParams.serial)
+//wen add
+//it must use api first, if someone wants to reserve device , example:
+//curl -X POST --header "Content-Type: application/json" --data '{"serial":"10.57.3.133:5555","timeout":10000}' -H "Authorization: Bearer token" http://10.57.5.55:7100/api/v1/user/devices
+DeviceService.load($routeParams.serial)
+  .then(function(device){
+    if(device.owner){
+      getDevice($routeParams.serial)
+    }else{
+      $location.path('/')
+    }
+})
+//wen end
+
+//wen del
+    //getDevice($routeParams.serial)
+//wen end
 
     $scope.$watch('device.state', function(newValue, oldValue) {
       if (newValue !== oldValue) {
-        if (oldValue === 'using') {
+        if (oldValue === 'using'
+//wen add
+          || oldValue === 'automation'
+//wen end
+        ) {
           FatalMessageService.open($scope.device, false)
         }
       }

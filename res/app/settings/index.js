@@ -6,7 +6,10 @@ module.exports = angular.module('ui-settings', [
 ])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/settings', {
-      template: require('./settings.pug')
+//wen add
+      redirectTo: '/devices'
+//wen end
+      //template: require('./settings.pug')
     })
   }])
   .controller('SettingsCtrl', require('./settings-controller'))

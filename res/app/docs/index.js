@@ -16,19 +16,33 @@ module.exports = angular.module('stf.help.docs', [
 
     $routeProvider
       .when('/docs/:document*', {
+//wen add
+        redirectTo: '/devices'
+//wen end
+//wen del
+/*
         templateUrl: function(params) {
           var lang = languageProvider.$get().selectedLanguage
           lang = 'en' // Only English for now
           var document = params.document.replace('.md', '')
           return '/static/wiki/[' + lang + ']-' + document
         }
+*/
+//wen end
       })
       .when('/help', {
+//wen add
+        redirectTo: '/devices'
+//wen end
+//wen del
+/*
         templateUrl: function() {
           var lang = languageProvider.$get().selectedLanguage
           lang = 'en' // Only English for now
           return '/static/wiki/[' + lang + ']-Help'
         }
+*/
+//wen end
       })
       //.when('/docs/:lang/:document*', {
       //  templateUrl: function (params) {

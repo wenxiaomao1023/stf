@@ -25,5 +25,6 @@
             button(ng-click='clearTable()', ng-disabled='false', title='{{"Clear"|translate}}').btn.btn-xs.btn-danger-outline
               i.fa.fa-trash-o
               span(translate)  Clear
+            //span 日志过多只过滤Warning及以上优先级日志
 
       logcat-table(add-row='lastEntry')

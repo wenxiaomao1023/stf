@@ -125,12 +125,16 @@ module.exports = function DeviceColumnService($filter, gettext) {
         return true
       }
     })
+//wen del
+/*
   , network: TextCell({
       title: gettext('Network')
     , value: function(device) {
         return device.phone ? device.phone.network : ''
       }
     })
+*/
+//wen end
   , display: TextCell({
       title: gettext('Screen')
     , defaultOrder: 'desc'
@@ -149,6 +153,8 @@ module.exports = function DeviceColumnService($filter, gettext) {
         return va - vb
       }
     })
+//wen del
+/*
   , browser: DeviceBrowserCell({
       title: gettext('Browser')
     , value: function(device) {
@@ -161,6 +167,8 @@ module.exports = function DeviceColumnService($filter, gettext) {
         return device.serial || ''
       }
     })
+*/
+//wen end
   , manufacturer: TextCell({
       title: gettext('Manufacturer')
     , value: function(device) {
@@ -174,6 +182,8 @@ module.exports = function DeviceColumnService($filter, gettext) {
         return device.sdk || ''
       }
     })
+//wen del
+/*
   , abi: TextCell({
       title: gettext('ABI')
     , value: function(device) {
@@ -258,6 +268,8 @@ module.exports = function DeviceColumnService($filter, gettext) {
         return device.provider ? device.provider.name : ''
       }
     })
+*/
+//wen del
   , notes: DeviceNoteCell({
       title: gettext('Notes')
     , value: function(device) {
@@ -418,6 +430,8 @@ function LinkCell(options) {
   , update: function(td, item) {
       var a = td.firstChild
       var t = a.firstChild
+//wen del
+/*
       var href = options.link(item)
       if (href) {
         a.setAttribute('href', href)
@@ -425,6 +439,8 @@ function LinkCell(options) {
       else {
         a.removeAttribute('href')
       }
+*/
+//wen end
       a.target = options.target || ''
       t.nodeValue = options.value(item)
       return td
@@ -594,6 +610,15 @@ function DeviceStatusCell(options) {
       var a = td.firstChild
       var t = a.firstChild
 
+//wen add
+//remove device-status
+//see function checkDeviceStatus() stf/res/app/device-list/details/device-list-details-directive.js
+      a.className = 'btn btn-xs ' +
+        (stateClasses[device.state] || 'btn-default-outline')
+//wen end
+
+//wen del
+/*
       a.className = 'btn btn-xs device-status ' +
         (stateClasses[device.state] || 'btn-default-outline')
 
@@ -603,7 +628,8 @@ function DeviceStatusCell(options) {
       else {
         a.removeAttribute('href')
       }
-
+*/
+//wen end
       t.nodeValue = options.value(device)
 
       return td
